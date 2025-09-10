@@ -49,38 +49,19 @@ Este repositorio contiene la aplicación web con la que interactúan los usuario
 
 ```mermaid
 flowchart TD
-    subgraph Frontend["🌐 Frontend (blog-community-web)"]
-        UI[UI Web: React/Angular/Vue]
-        AuthUI[Gestión de Sesión JWT]
-        Pages[Páginas: Feed, Post, Perfil, Admin]
-    end
+    %% Cliente
+    Client["Cliente Navegador o Frontend"]
 
-    subgraph Backend["⚙️ Backend API (blog-community-api)"]
-        Auth[Auth Service (JWT, OAuth)]
-        Users[Users Module]
-        Posts[Posts Module]
-        Comments[Comments Module]
-        Reactions[Reactions Module]
-        Tags[Tags Module]
-    end
+    %% REST Flow
+    Client -->|Petición REST| RESTController["REST Controller"]
+    RESTController --> CommandOrQuery["Command / Query"]
+    CommandOrQuery --> Service["Service / Business Logic"]
+    Service --> DbContext["DbContext / ORM"]
+    DbContext --> Database["Base de Datos"]
 
-    subgraph Database["🗄️ Base de Datos (PostgreSQL/MongoDB)"]
-        TUsers[(Usuarios)]
-        TPosts[(Publicaciones)]
-        TComments[(Comentarios)]
-        TReactions[(Reacciones)]
-        TTags[(Categorías/Etiquetas)]
-    end
+    %% GraphQL Flow
+    Client -->|Petición GraphQL| GraphQLResolver["GraphQL Resolver"]
+    GraphQLResolver --> CommandOrQuery
 
-    %% Conexiones
-    UI -->|REST/GraphQL| Backend
-    AuthUI --> Auth
-    Pages --> Posts
 
-    Auth --> TUsers
-    Users --> TUsers
-    Posts --> TPosts
-    Comments --> TComments
-    Reactions --> TReactions
-    Tags --> TTags
 
