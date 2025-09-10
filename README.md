@@ -23,7 +23,16 @@ Este repositorio contiene la lógica del servidor y la API REST/GraphQL que expo
   - Documentación con Swagger / Postman.
 
 📂 Estructura sugerida:
-
+  ```text
+  blog-community-api/
+  ├── src/
+  │ ├── modules/ # Módulos (users, posts, comments, auth, etc.)
+  │ ├── common/ # Utilidades, middlewares, guards
+  │ ├── config/ # Configuración de entorno
+  │ └── main.ts # Punto de entrada
+  ├── test/ # Pruebas unitarias e2e
+  └── package.json
+  ```
 
 ---
 
@@ -43,7 +52,17 @@ Este repositorio contiene la aplicación web con la que interactúan los usuario
   - Integración con la API.
 
 📂 Estructura sugerida:
-
+  ```bash
+  blog-community-web/
+  ├── src/
+  │ ├── components/ # Componentes reutilizables
+  │ ├── pages/ # Vistas principales
+  │ ├── services/ # Conexión con la API
+  │ ├── store/ # Estado global (Redux, NgRx, Pinia)
+  │ └── App.tsx # Punto de entrada
+  ├── public/ # Recursos estáticos
+  └── package.json
+  ```
 
 # 📊 Arquitectura del Blog Comunitario
 
