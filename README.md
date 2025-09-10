@@ -8,7 +8,7 @@ El sistema está dividido en **dos repositorios principales**: **Backend (API)**
 ## 📂 Estructura de Repositorios
 
 ### 1. Backend - API
-📌 **Repositorio:** [`blog-community-backend`](https://github.com/Optarys/devtalles-blog-community-backend)  
+📌 **Repositorio:** [`blog-community-api`](https://github.com/Optarys/devtalles-blog-community-api)  
 Este repositorio contiene la lógica del servidor y la API REST/GraphQL que expone los datos para el frontend.
 
 - **Tecnología:** NestJS (Node.js) / Express / .NET / Laravel (según tu stack).  
