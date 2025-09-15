@@ -14,7 +14,7 @@
 - 🧭 **Jira (Backlog/Board)** → https://roquejohanssen.atlassian.net/jira/software/projects/OD/boards/3  
   > *Nota:* requiere iniciar sesión con cuenta Atlassian para visualizar.
 - 🎨 **Figma (Diseño UI)** → https://www.figma.com/design/UX4HwSBck2NOO36krAuzad/OPTARYS--DEVTALLES?node-id=2-33&t=DMUJ9IYllcsXAstD-1
-- 📄 **Backlog exportado (CSV)** → [`docs/backlog-jira.csv`](./docs/backlog-jira.csv) *(adjuntar en el repo)*
+- 📄 **Backlog exportado (CSV)** → [`docs/backlog-jira.csv`](./docs/jira_backlog_codequest2025.csv) 
 - 🎬 **Demo (WIP)** → `docs/demo.mp4` *(opcional, adjuntar cuando esté listo)*
 
 ---
