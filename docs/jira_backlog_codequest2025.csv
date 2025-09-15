@@ -1,0 +1,106 @@
+Issue Id,Issue Type,Epic Name,Summary,Description,Labels,Components,Parent Id,Epic Link,Story Points,Story point estimate
+100,Epic,Arquitectura y Setup del Proyecto,[Epic] Arquitectura y Setup del Proyecto,"Objetivo: preparar la base técnica del proyecto (repos, entornos, CI/CD, licenciamiento).
+Incluye: repos públicos, ramas, variables de entorno, MIT, línea base FE (Astro/React) y BE (NestJS).
+Criterios: repos accesibles; pipeline con build/checks; .env.example; LICENSE MIT.","codequest2025,devtalles,infra,setup",General,,,,
+200,Epic,Landing & Listado de Posts,[Epic] Landing & Listado de Posts,"Objetivo: listar posts en la landing con tarjetas limpias y responsive.
+Incluye: paginación / infinite scroll, estado loading, consumo de API /posts.
+Criterios: al abrir / se ven posts; rendimiento aceptable; accesibilidad básica.","codequest2025,devtalles,frontend,ui,posts",General,,,,
+300,Epic,Búsqueda y Filtros por Categorías,[Epic] Búsqueda y Filtros por Categorías,"Objetivo: permitir buscar por texto y filtrar por categoría, con estado en URL.
+Incluye: querystring, chips de categorías, sin recarga completa.
+Criterios: compartir URL reproduce filtros/búsqueda; vaciar filtros restablece lista.","codequest2025,devtalles,frontend,ui,search",General,,,,
+400,Epic,Autenticación y Usuarios (Discord OAuth),[Epic] Autenticación y Usuarios (Discord OAuth),"Objetivo: login/registro con Discord, obtención de perfil básico y sesión segura.
+Incluye: OAuth2 en backend, cookies httpOnly, refresh tokens, middleware.
+Criterios: flujo completo login→callback→sesión; logout válido; rol user/admin.","codequest2025,devtalles,backend,auth,discord",General,,,,
+500,Epic,Panel Administrativo (CRUD de Posts),[Epic] Panel Administrativo (CRUD de Posts),"Objetivo: panel admin protegido para crear, editar, publicar y borrar posts.
+Incluye: roles y permisos, estados (draft/published), validaciones.
+Criterios: solo admin accede; CRUD funcional; auditoría mínima (timestamps/autor).","codequest2025,devtalles,backend,admin,crud",General,,,,
+600,Epic,"Detalle de Post, Likes, Comentarios y Relacionados","[Epic] Detalle de Post, Likes, Comentarios y Relacionados","Objetivo: vista del post con likes y comentarios autenticados y listado de relacionados.
+Incluye: endpoints /posts/:id, /comments, /likes; UI accesible.
+Criterios: like toggle; comentar y listar; bloque de “También te puede interesar”.","codequest2025,devtalles,frontend,backend,ux",General,,,,
+700,Epic,"Contenido, Demo y Entrega","[Epic] Contenido, Demo y Entrega","Objetivo: preparar README, video demo (1–1:30 min), checklist de entrega y GitHub.
+Incluye: guion del video, enlace público, instrucciones de ejecución.
+Criterios: README reproducible; video dentro del tiempo; repos con MIT.","codequest2025,devtalles,docs,entrega",General,,,,
+800,Epic,"Calidad, UI/UX y Buenas Prácticas","[Epic] Calidad, UI/UX y Buenas Prácticas","Objetivo: cubrir pruebas, lint/format, accesibilidad y consistencia visual.
+Incluye: unit tests y e2e, ESLint/Prettier, pautas de diseño, revisión cruzada.
+Criterios: tests mínimos verdes; lints sin errores; contrastes AA; checklist DoD.","codequest2025,devtalles,quality,testing,ux",General,,,,
+101,Story,,Inicializar repos (FE Astro/React y BE NestJS) y plantilla MIT,"
+Criterios de aceptación:
+- Repositorios públicos creados (frontend y backend) con LICENSE MIT.
+- Ramas: main, develop y convención feature/*.
+- README base con instrucciones mínimas.
+
+Definition of Done:
+- Commits iniciales, husky/pre-commit configurado (lint/format).
+- .editorconfig y .nvmrc/.node-version (si aplica).
+","codequest2025,devtalles,repo,mit",Infra,100,100,3,3
+102,Story,,"CI: build, lint y pruebas en PR (GitHub Actions)","
+Criterios de aceptación:
+- Workflow que ejecute build, lint y tests en cada PR hacia develop/main.
+- Badges en README.
+
+DoD:
+- Pipelines verdes en PR de ejemplo.
+","codequest2025,devtalles,ci-cd",Infra,100,100,5,5
+103,Story,,Entornos y secretos (.env.example),"
+Criterios de aceptación:
+- Variables definidas para FE/BE con .env.example.
+- Discord OAuth keys documentadas.
+
+DoD:
+- Documento de configuración rápida (README sección 'Config').
+","codequest2025,devtalles,env,secrets",Infra,100,100,3,3
+1001,Sub-task,,Configurar monorepo o repos separados (decisión y setup),Elegir estrategia (monorepo con PNPM workspaces o repos separados) y configurar.,"codequest2025,devtalles",Infra,101,,2,2
+1002,Sub-task,,Husky + lint-staged + Prettier/ESLint,Ganchos pre-commit con format y lint para FE/BE.,"codequest2025,devtalles",Infra,101,,1,1
+201,Story,,Listado de posts en / con tarjetas responsive,"
+Criterios:
+- Cards con título, autor, fecha, extracto y tags.
+- Estado de carga con skeletons.
+
+DoD:
+- Lighthouse ≥ 85 en Performance/Best Practices.
+","codequest2025,devtalles,ui,posts",Frontend,200,200,5,5
+202,Story,,Paginación o Infinite Scroll con API /posts,"- Paginación accesible o observer para lazy load.
+- Manejo de vacíos y fin de resultados.","codequest2025,devtalles,ux,performance",Frontend,200,200,3,3
+203,Story,,Diseño responsive (mobile-first),"- Breakpoints y grid para Desktop/Tablet/Mobile.
+- Pruebas en 360px, 768px, 1280px.","codequest2025,devtalles,responsive",Frontend,200,200,3,3
+2001,Sub-task,,Componente <PostCard /> + estados,Componente reutilizable con placeholders y A11Y básico.,"codequest2025,devtalles",Frontend,201,,1,1
+2002,Sub-task,,Endpoint GET /posts?limit&offset,Implementar endpoint en NestJS y DTOs.,"codequest2025,devtalles",Backend,202,,2,2
+301,Story,,Filtro por categorías con chips y conteo,- Selección múltiple; indicador de cantidad por categoría.,"codequest2025,devtalles,filters",Frontend,300,300,3,3
+302,Story,,Buscador por texto con debounce,"- Input con debounce 300ms, busca en título y extracto.","codequest2025,devtalles,search",Frontend,300,300,3,3
+303,Story,,Estado en URL (querystring) y SEO,"- Sincronizar filtros y búsqueda con la URL.
+- Etiquetas meta básicas.","codequest2025,devtalles,seo",Frontend,300,300,2,2
+3001,Sub-task,,DTO de filtrado/búsqueda en backend,"Normalizar parámetros (q, categories, page, pageSize).","codequest2025,devtalles",Backend,303,,1,1
+401,Story,,Backend: OAuth2 Discord (passport),"- Estrategia passport-discord; rutas /auth/discord & /auth/callback.
+- Tokens seguros.","codequest2025,devtalles,oauth2,discord",Backend,400,400,5,5
+402,Story,,Frontend: botón 'Continuar con Discord' y sesión,"- Botón, flujo de login y estado global de usuario.","codequest2025,devtalles,auth,ui",Frontend,400,400,3,3
+403,Story,,Roles y protección de rutas (admin/user),- Guards en backend y HOCs/hooks en frontend.,"codequest2025,devtalles,roles,security",Fullstack,400,400,3,3
+4001,Sub-task,,Middleware de sesión (cookies httpOnly),Configurar cookies seguras y CSRF si aplica.,"codequest2025,devtalles",Backend,401,,2,2
+4002,Sub-task,,Página /perfil con datos básicos,"Avatar, nombre, Discord ID.","codequest2025,devtalles",Frontend,402,,1,1
+501,Story,,Panel admin: listado y filtros de posts,- Tabla con búsqueda; acciones editar/eliminar.,"codequest2025,devtalles,admin,ui",Frontend,500,500,3,3
+502,Story,,Crear/Editar post con estados draft/published,- Form con validaciones; Markdown/MDX o editor simple.,"codequest2025,devtalles,crud,forms",Fullstack,500,500,5,5
+503,Story,,Permisos: solo admin accede al panel,- Verificación de rol y redirecciones.,"codequest2025,devtalles,security",Backend,500,500,2,2
+5001,Sub-task,,Endpoints REST para posts (CRUD),"Rutas /posts (POST, PUT, DELETE) con DTOs/validación.","codequest2025,devtalles",Backend,502,,2,2
+601,Story,,Vista detalle de post,"- Render título, metadatos, contenido, tags.","codequest2025,devtalles,post-detail",Frontend,600,600,3,3
+602,Story,,Likes (toggle) con conteo,"- Botón like, contador, prevención multi-like por usuario.","codequest2025,devtalles,likes",Fullstack,600,600,3,3
+603,Story,,Comentarios autenticados,- Crear y listar comentarios; moderación básica.,"codequest2025,devtalles,comments",Fullstack,600,600,5,5
+604,Story,,Posts relacionados/De interés,- Algoritmo simple por categoría/etiquetas.,"codequest2025,devtalles,related",Backend,600,600,2,2
+6001,Sub-task,,Endpoint /posts/:id y cache básico,Obtener post por id/slug; cache TTL corto.,"codequest2025,devtalles",Backend,601,,1,1
+6002,Sub-task,,Endpoint /likes (POST/DELETE),Registra/quita like por usuario autenticado.,"codequest2025,devtalles",Backend,602,,1,1
+6003,Sub-task,,Endpoint /comments (POST/GET),"Crear y listar comentarios, rate limit básico.","codequest2025,devtalles",Backend,603,,2,2
+701,Story,,README completo (ejecución y stack),"
+Criterios:
+- Pasos para correr FE/BE localmente.
+- Variables de entorno necesarias.
+- Estructura de carpetas y decisiones clave.
+DoD: README validado por un compañero (revisión cruzada).
+","codequest2025,devtalles,docs,readme",Docs,700,700,2,2
+702,Story,,Video demo (1–1:30 min) con guion,"- Mostrar features clave (landing, filtros, login Discord, admin, detalle/likes/comentarios).","codequest2025,devtalles,demo,video",Docs,700,700,2,2
+703,Story,,"Checklist de entrega (MIT, repo público, ramas, instrucciones)",- Verificar condiciones del brief y criterios de evaluación.,"codequest2025,devtalles,checklist,entrega",Docs,700,700,1,1
+7001,Sub-task,,Agregar LICENSE (MIT) a ambos repos,Archivo LICENSE MIT en raíz.,"codequest2025,devtalles",Docs,701,,1,1
+7002,Sub-task,,Subir video y enlazar en README,Enlace al video en la sección 'Demo'.,"codequest2025,devtalles",Docs,702,,1,1
+801,Story,,Pruebas unitarias mínimas (BE y FE),- Cobertura crítica para servicios y componentes clave.,"codequest2025,devtalles,tests,unit",Quality,800,800,3,3
+802,Story,,E2E smoke (rutas felices),"- Registro/login, listar, filtrar, detalle, like, comentar.","codequest2025,devtalles,tests,e2e",Quality,800,800,3,3
+803,Story,,Lint/Format y normas de código,- ESLint + Prettier + reglas consensuadas.,"codequest2025,devtalles,lint,prettier",Quality,800,800,1,1
+804,Story,,Accesibilidad y contraste AA,- Roles ARIA donde aplique; contraste AA; foco visible.,"codequest2025,devtalles,a11y",UX,800,800,2,2
+8001,Sub-task,,Integrar jest/vitest + testing-library,Config FE/BE con scripts npm.,"codequest2025,devtalles",Quality,801,,1,1
+8002,Sub-task,,Configurar Playwright/Cypress (E2E),Pruebas smoke de rutas clave.,"codequest2025,devtalles",Quality,802,,2,2
