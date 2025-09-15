@@ -24,7 +24,7 @@
 </div>
 
 <p align="center">
-  <img src=".assets/ISOLOGO%20COLOR.png" alt="Isologo DevTalles" height="18" />
+  <img src="./assets/ISOLOGO%20COLOR.png" alt="Isologo DevTalles" height="18" />
 </p>
 
 ## 📌 Enlaces rápidos
@@ -53,7 +53,7 @@
 **Dev/Calidad**: Node 20, ESLint + Prettier, Vitest/Jest, Playwright/Cypress, GitHub Actions.
 
 <p align="center">
-  <img src=".assets/DEVI%20NORMAL%20BORDER.png" alt="DEVI Normal" height="110" />
+  <img src="./assets/DEVI%20NORMAL%20BORDER.png" alt="DEVI Normal" height="110" />
 </p>
 
 ## 🏗️ Arquitectura & módulos
@@ -91,7 +91,7 @@ blog-community-api/      # Backend (NestJS)
 ```
 
 <p align="center">
-  <img src=".assets/ISOLOGO%20B.png" alt="Isologo blanco" height="24" />
+  <img src="./assets/ISOLOGO%20B.png" alt="Isologo blanco" height="24" />
 </p>
 
 ## ▶️ Cómo ejecutar localmente
@@ -167,5 +167,5 @@ jobs:
 Este proyecto se distribuye bajo licencia **MIT**.
 
 <p align="center">
-  <img src=".assets/LOGO%20B.png" alt="DevTalles Logo Blanco" height="42" />
+  <img src="./assets/LOGO%20B.png" alt="DevTalles Logo Blanco" height="42" />
 </p>
