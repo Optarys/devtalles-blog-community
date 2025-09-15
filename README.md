@@ -29,7 +29,6 @@
 - [Variables de entorno](#-variables-de-entorno)
 - [Calidad: lint, tests, accesibilidad](#-calidad-lint-tests-accesibilidad)
 - [CI/CD](#-cicd)
-- [Convenciones: ramas y commits](#-convenciones-ramas-y-commits)
 - [Roadmap y épicas](#-roadmap-y-épicas)
 - [Licencia](#-licencia)
 
@@ -219,13 +218,7 @@ jobs:
 
 ---
 
-## 🌿 Convenciones: ramas y commits
 
-- Ramas: `main`, `develop`, `feature/*`, `fix/*`.
-- **Conventional Commits**: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`…
-- Pull Requests con checks verdes (CI) y revisión cruzada.
-
----
 
 ## 🗺 Roadmap y épicas
 
