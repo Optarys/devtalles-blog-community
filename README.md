@@ -35,7 +35,7 @@
 - 📄 **Backlog exportado (CSV)** → [docs/jira_backlog_codequest2025.csv](./docs/jira_backlog_codequest2025.csv)
 
 <p align="center">
-  <img src=".assets/DEVI%20LAPTOP.png" alt="DEVI Laptop" height="120" />
+  <img src="./assets/DEVI%20LAPTOP.png" alt="DEVI Laptop" height="120" />
 </p>
 
 ## 🎯 Objetivo
