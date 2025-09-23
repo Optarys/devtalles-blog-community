@@ -170,23 +170,6 @@ PUBLIC_DISCORD_LOGIN_URL=http://localhost:3000/auth/discord
   <img src="./assets/DEVI%20HELLO%20BORDER.png" alt="DEVI Hello Border" height="120" />
 </p>
 
-## 🛠 CI/CD (sugerido)
-
-```yaml
-name: CI
-on: [pull_request, push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: pnpm i --frozen-lockfile
-      - run: pnpm -r lint && pnpm -r test && pnpm -r build
-```
-
 ## 📜 Licencia
 
 Este proyecto se distribuye bajo licencia **MIT**.
