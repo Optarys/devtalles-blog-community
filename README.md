@@ -33,6 +33,7 @@
   <sub>Requiere iniciar sesión con Atlassian.</sub>
 - 🎨 **Figma (Diseño UI)** → https://www.figma.com/design/UX4HwSBck2NOO36krAuzad/OPTARYS--DEVTALLES?node-id=2-33&t=DMUJ9IYllcsXAstD-1
 - 📄 **Backlog exportado (CSV)** → [docs/jira_backlog_codequest2025.csv](./docs/jira_backlog_codequest2025.csv)
+- 👩‍🏫 **Presentación PowerPoint** → [docs/optarys codequest.pptx](./docs/optarys-codequest.pptx)
 
 <p align="center">
   <img src="./assets/DEVI%20LAPTOP.png" alt="DEVI Laptop" height="120" />
