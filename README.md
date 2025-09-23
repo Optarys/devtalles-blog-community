@@ -119,33 +119,6 @@ flowchart TD
   <img src="./assets/ISOLOGO%20B.png" alt="Isologo blanco" height="24" />
 </p>
 
-## ▶️ Cómo ejecutar localmente
-
-### Requisitos
-- Node.js **20.x**
-- PNPM o NPM/Yarn
-- (Opcional) PostgreSQL
-
-### 1) Backend (NestJS)
-```bash
-cd blog-community-api
-pnpm i
-cp .env.example .env
-# Si usas Prisma:
-# pnpm prisma migrate dev
-pnpm run start:dev
-```
-http://localhost:3000
-
-### 2) Frontend (Astro/React)
-```bash
-cd blog-community-web
-pnpm i
-cp .env.example .env       # variables con prefijo PUBLIC_
-pnpm run dev
-```
-http://localhost:4321
-
 ## 🔐 Variables de entorno
 
 **Backend**
