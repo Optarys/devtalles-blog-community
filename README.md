@@ -49,7 +49,7 @@
 ## 🧰 Stack Tecnológico
 
 - 💻 **Frontend**: Astro + React (islas), TypeScript, TailwindCSS, Flowbite React. → [blog-community-web](https://github.com/Optarys/devtalles-blog-community-web)
-- 🏗️ **Backend** NestJS (TypeScript), REST ,GraphQL, PostgreSQL y TypeORM. → [blog-community-api](https://github.com/Optarys/devtalles-blog-community-api)
+- 🏗️ **Backend**: NestJS (TypeScript), REST ,GraphQL, PostgreSQL y TypeORM. → [blog-community-api](https://github.com/Optarys/devtalles-blog-community-api)
 
 <p align="center">
   <img src="./assets/DEVI%20NORMAL%20BORDER.png" alt="DEVI Normal" height="110" />
@@ -64,7 +64,6 @@ flowchart TD
   C --> D[Base de datos SQL]
   B --> E[OAuth2]
   A --> F[Cookies httpOnly]
-
 ```
 
 **Backend**: `auth`, `users`, `posts`, `comments`, `likes`, `categories`  
@@ -80,7 +79,9 @@ blog-community-web/      # Frontend (Astro/React)
    ├─ lib/
    ├─ styles/
    └─ env.d.ts
+```
 
+```
 blog-community-api/      # Backend (NestJS)
 └─ src/
    ├─ admin/ (Funciones administrativas)
@@ -89,6 +90,29 @@ blog-community-api/      # Backend (NestJS)
    ├─ core/ (Servicios, clases y modulos compartidos)
    ├─ database/ (Migraciones)
    └─ main.ts
+```
+
+```mermaid
+flowchart TD
+  %% Cliente
+  A[Cliente Frontend] --> B[API NestJS]
+
+  %% REST
+  B --> C[REST]
+  C --> C1[Command / Query]
+  C1 --> C2[Mediator]
+  C2 --> C3[Handler correspondiente]
+  C3 --> C4[Servicios]
+  C4 --> D[Contexto de Base de Datos]
+  D --> E[Base de datos SQL]
+
+  %% GraphQL
+  B --> F[GraphQL]
+  F --> F1[Resolvers]
+  F1 --> F2[Servicios]
+  F2 --> G[Contexto de Base de Datos]
+  G --> E
+
 ```
 
 <p align="center">
