@@ -48,9 +48,8 @@
 
 ## 🧰 Stack Tecnológico
 
-**Frontend**: Astro + React (islas), TypeScript, TailwindCSS, Flowbite React.  
-**Backend**: NestJS (TypeScript), REST (opcional GraphQL), PostgreSQL (Prisma/TypeORM).  
-**Dev/Calidad**: Node 20, ESLint + Prettier, Vitest/Jest, Playwright/Cypress, GitHub Actions.
+- 💻 **Frontend**: Astro + React (islas), TypeScript, TailwindCSS, Flowbite React. → [blog-community-web](https://github.com/Optarys/devtalles-blog-community-web)
+- 🏗️ **Backend** NestJS (TypeScript), REST ,GraphQL, PostgreSQL y TypeORM. → [blog-community-api](https://github.com/Optarys/devtalles-blog-community-api)
 
 <p align="center">
   <img src="./assets/DEVI%20NORMAL%20BORDER.png" alt="DEVI Normal" height="110" />
@@ -60,12 +59,12 @@
 
 ```mermaid
 flowchart TD
-  A[Cliente (Astro/React)] -->|REST| B[API NestJS]
-  B --> C[Servicios / Casos de uso]
-  C --> D[ORM/Prisma]
-  D --> E[(Base de datos SQL)]
-  B --> F[OAuth2 Discord]
-  A -->|Sesión| G[Cookies httpOnly / Refresh]
+  A[Cliente Astro React] --> B[API NestJS]
+  B --> C[Servicios y Casos de Uso]
+  C --> D[Base de datos SQL]
+  B --> E[OAuth2]
+  A --> F[Cookies httpOnly]
+
 ```
 
 **Backend**: `auth`, `users`, `posts`, `comments`, `likes`, `categories`  
@@ -84,9 +83,11 @@ blog-community-web/      # Frontend (Astro/React)
 
 blog-community-api/      # Backend (NestJS)
 └─ src/
-   ├─ modules/ (auth, posts, comments, users, likes, categories)
-   ├─ common/ (guards, pipes, interceptors)
-   ├─ config/
+   ├─ admin/ (Funciones administrativas)
+   ├─ auth/ (Funciones de autenticacion)
+   ├─ blog/ (Funciones de blog: publicaciones, comentarios, etc)
+   ├─ core/ (Servicios, clases y modulos compartidos)
+   ├─ database/ (Migraciones)
    └─ main.ts
 ```
 
@@ -125,14 +126,41 @@ http://localhost:4321
 
 **Backend**
 ```
-PORT=3000
-DATABASE_URL=postgres://user:pass@localhost:5432/blog
-JWT_SECRET=supersecret
-CORS_ORIGIN=http://localhost:4321
+# CORS
+CORS_ALLOWED_HEADERS=Content-Type,Authorization
+CORS_CREDENTIALS=true
+CORS_METHODS=GET,POST,PUT,DELETE,OPTIONS
+CORS_ORIGINS=http://localhost:3000,https://tu-frontend-dev,https://tu-frontend-prod,http://localhost:4321
 
-DISCORD_CLIENT_ID=
-DISCORD_CLIENT_SECRET=
-DISCORD_REDIRECT_URI=http://localhost:3000/auth/discord/callback
+# Base de datos
+DB_HOST=localhost
+DB_NAME=blog_db
+DB_USER=postgres
+DB_PASS=postgres123
+DB_PORT=5432
+
+# OAuth2 - Discord
+DISCORD_CLIENT_ID=DISCORD_CLIENT_ID_AQUI
+DISCORD_CLIENT_SECRET=DISCORD_CLIENT_SECRET_AQUI
+DISCORD_REDIRECT_URI=https://tudominio.com/auth/oauth2/callback
+
+# OAuth2 - GitHub
+GITHUB_CLIENT_ID=GITHUB_CLIENT_ID_AQUI
+GITHUB_CLIENT_SECRET=GITHUB_CLIENT_SECRET_AQUI
+GITHUB_REDIRECT_URI=https://tudominio.com/auth/oauth2/callback
+
+# OAuth2 - Google
+GOOGLE_OAUTH_CLIENT_ID=GOOGLE_CLIENT_ID_AQUI
+GOOGLE_OAUTH_CLIENT_SECRET=GOOGLE_CLIENT_SECRET_AQUI
+GOOGLE_OAUTH_REDIRECT_URI=https://tudominio.com/auth/oauth2/callback
+
+# JWT
+JWT_SECRET=JWT_SECRET_AQUI
+JWT_EXPIRATION_TIME=1h
+
+# Servidor
+PORT=3000
+TZ=America/Managua
 ```
 
 **Frontend**
