@@ -67,8 +67,8 @@ flowchart TD
   A --> F[Cookies httpOnly]
 ```
 
-**Backend**: `auth`, `admin`, `blog`, `core`, `database`
-**Frontend**: `components/`, `pages/`, `content/`, `lib/`, `styles/`
+- **Backend**: `auth`, `admin`, `blog`, `core`, `database`
+- **Frontend**: `components/`, `pages/`, `content/`, `lib/`, `styles/`
 
 ## 🗂️ Repos/Estructura
 
